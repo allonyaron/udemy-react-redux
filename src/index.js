@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import SearchBar from './components/search_bar';
 
-import App from './components/app';
-import reducers from './reducers';
+// TODO - Move api key to safe place to distribute
+const API_KEY = 'AIzaSyAb7EHP4pa1t-eJE5FjquCGmiZx0Y3x82Y';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const App = () => {
+	// For multiline jsx it is usually wrapped in prentheses - 
+	// otherwise first div needs to be on return line or it will error
+	return (
+		<div>
+			<SearchBar />
+		</div>
+	);
+}
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
+
+
