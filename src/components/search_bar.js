@@ -13,13 +13,24 @@ class SearchBar extends Component {
 // anywhere else outside the constructor it's this.setState
 		this.state = { term: '' };
 	}
-
-
-
-	// every react component that is class based has to have a redner method
+	// using this.setState is what will make react rerender
 	render() {
-		return <input onChange={event => this.setState({ term: event.target.value })} />;
+		return (
+			<div>
+				<input 
+				value = {this.state.term}
+				onChange={event => this.setState({ term: event.target.value })} />
+				Value of the input: {this.state.term}
+			</div>
+		);
 	}
+
+
+// FIX THIS
+	// every react component that is class based has to have a redner method
+	// render() {
+	// 	return <input onChange={this.onInputChange}/>;
+	// }
 
 	// onInputChange(event) {
 	// 	// never update this.state directly - use this.setState
